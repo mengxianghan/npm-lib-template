@@ -46,7 +46,8 @@
   "scripts": {
     "dev": "vite",
     "build": "rollup -c",
-    "build:vite": "vite build"
+    "build:vite": "vite build",
+    "prepare": "husky"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -55,6 +56,8 @@
     "@antfu/eslint-config": "^6.1.0",
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-commonjs": "^28.0.9",
     "@rollup/plugin-node-resolve": "^16.0.3",
@@ -63,7 +66,9 @@
     "@swc/core": "^1.14.0",
     "eslint": "^9.38.0",
     "eslint-plugin-format": "^1.0.2",
+    "husky": "^9.1.7",
     "jiti": "^2.6.1",
+    "lint-staged": "^16.2.6",
     "rollup": "^4.52.5",
     "rollup-plugin-delete": "^3.0.1",
     "rollup-plugin-dts": "^6.2.3",
@@ -72,5 +77,11 @@
     "typescript": "^5.9.3",
     "vite": "^7.1.12",
     "vite-plugin-dts": "^4.5.4"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint",
+      "tsc -p tsconfig.json"
+    ]
   }
 }
