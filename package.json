@@ -27,13 +27,14 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json",
     "./*": "./*"
   },
   "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.global.js",
   "types": "dist/index.d.ts",
   "files": [
     "README.md",
@@ -41,7 +42,9 @@
     "package.json"
   ],
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20",
+    "pnpm": ">=9",
+    "npm": ">=10"
   },
   "scripts": {
     "dev": "vite",
@@ -63,6 +66,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.3.0",
     "@swc/core": "^1.14.0",
+    "@types/node": "^24.10.0",
     "eslint": "^9.38.0",
     "eslint-plugin-format": "^1.0.2",
     "husky": "^9.1.7",
