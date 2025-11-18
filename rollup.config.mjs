@@ -12,7 +12,7 @@ export default [
     output: [
       {
         file: 'dist/index.global.js',
-        name: '',
+        name: 'myLib',
         format: 'iife',
         plugins: [
           // terser(),
