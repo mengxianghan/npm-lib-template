@@ -1,6 +1,7 @@
+import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
-import terser from '@rollup/plugin-terser'
+// import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import del from 'rollup-plugin-delete'
 import dts from 'rollup-plugin-dts'
@@ -14,7 +15,7 @@ export default [
         name: '',
         format: 'iife',
         plugins: [
-          terser(),
+          // terser(),
         ],
       },
       {
@@ -31,12 +32,12 @@ export default [
       typescript(),
       resolve(),
       commonjs(),
-      // babel({
-      //   babelHelpers: 'bundled',
-      //   exclude: ['node_modules/**'],
-      //   extensions: ['.ts'],
-      //   presets: ['@babel/preset-env'],
-      // }),
+      babel({
+        babelHelpers: 'bundled',
+        exclude: ['node_modules/**'],
+        extensions: ['.ts'],
+        presets: ['@babel/preset-env'],
+      }),
     ],
   },
   {
